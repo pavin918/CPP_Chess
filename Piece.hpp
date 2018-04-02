@@ -10,6 +10,7 @@
 //Base class from which all chess pieces derive from.
 //ID key: black pieces = -1; blank pieces = 0; white pieces = 1
 
+//Hash function from Boost
 template <class T>
 inline void hash_combine(std::size_t & seed, const T & v)
 {
@@ -17,6 +18,9 @@ inline void hash_combine(std::size_t & seed, const T & v)
     seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
+
+//Credit to Kerrek SB on stackoverflow
+//https://stackoverflow.com/questions/9729390/how-to-use-unordered-set-with-custom-types/9729747
 template<typename S, typename T> 
 struct pair_hash//<std::pair<S, T>>
 {
